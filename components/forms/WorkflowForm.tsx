@@ -28,7 +28,14 @@ const WorkflowForm = ({ subTitle, title }: Props) => {
   const isLoading = form.formState.isLoading;
   const router = useRouter();
 
-  const handleSubmit=()=>{}
+  const handleSubmit = async (values: z.infer<typeof WorkflowFormSchema>) => {
+    const workflow = await onCreateWorkflow(values.name, values.description);
+    if (workflow) {
+      toast.message(workflow.message);
+      router.refresh();
+    }
+    setClose();
+  };
   return (
     <Card className="w-full max-w-[650px] border-none">
       {title && subTitle && (
