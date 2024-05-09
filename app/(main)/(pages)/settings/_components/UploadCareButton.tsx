@@ -11,7 +11,7 @@ const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();
   const ctxProviderRef = useRef<
     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
-  >("");
+  >(true);
 
   useEffect(() => {
     const handleUpload = async (e: any) => {
