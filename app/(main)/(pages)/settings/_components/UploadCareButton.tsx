@@ -20,11 +20,24 @@ const UploadCareButton = ({ onUpload }: Props) => {
         router.refresh();
       }
     };
-    ctxProviderRef?.current.addEventListener(
-      "file-upload-success",
-      handleUpload
-    );
-  }, []);
+    // Ensure ctxProviderRef.current is not null before adding event listener
+    if (ctxProviderRef.current) {
+      ctxProviderRef.current.addEventListener(
+        "file-upload-success",
+        handleUpload
+      );
+    }
+
+    // Cleanup function to remove event listener
+    return () => {
+      if (ctxProviderRef.current) {
+        ctxProviderRef.current.removeEventListener(
+          "file-upload-success",
+          handleUpload
+        );
+      }
+    };
+  }, [onUpload, router]);
 
   return (
     <div>
