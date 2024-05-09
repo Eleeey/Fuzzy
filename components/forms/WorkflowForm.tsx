@@ -1,7 +1,7 @@
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import  { Form, useForm}  from "react-hook-form";
+import  { Form, FormProvider, useForm}  from "react-hook-form";
 import { z } from "zod";
 import  {useModal}  from "../../providers/modal-provider";
 import { WorkflowFormSchema } from "../../types";
@@ -38,7 +38,7 @@ const WorkflowForm = ({ subTitle, title }: Props) => {
         </CardHeader>
       )}
       <CardContent>
-        <Form {...form}>
+        <FormProvider {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}
             className="flex flex-col gap-4 text-left"
@@ -83,7 +83,7 @@ const WorkflowForm = ({ subTitle, title }: Props) => {
               )}
             </Button>
           </form>
-        </Form>
+        </FormProvider>
       </CardContent>
     </Card>
   );

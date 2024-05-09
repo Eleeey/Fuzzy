@@ -5,6 +5,8 @@ import React from 'react'
 import {Card, CardHeader, CardTitle, CardDescription } from '../../../../../components/ui/card';
 import { Label } from '../../../../../components/ui/label';
 import { Switch } from '../../../../../components/ui/switch';
+import { onFlowPublish } from '../editor/[id]/_actions/workflow-connections.actions';
+import { toast } from 'sonner';
 
 type Props = {
   name: string;
@@ -14,6 +16,15 @@ type Props = {
 };
 
 const Workflow = ({ description, id, name, publish }: Props) => {
+
+  const onPublishFlow = async (event: any) => {
+    const response = await onFlowPublish(
+      id,
+      event.target.ariaChecked === "false"
+    );
+    if (response) toast.message(response);
+  };
+
   return (
     <Card className="flex w-full items-center justify-between">
       <CardHeader className="flex flex-col gap-4">
@@ -53,7 +64,7 @@ const Workflow = ({ description, id, name, publish }: Props) => {
         </Label>
         <Switch
           id="airplane-mode"
-          // onClick={onPublishFlow}
+          onClick={onPublishFlow}
           defaultChecked={publish!}
         />
       </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import ReactFlow, {
   Background,
   Connection,
@@ -10,6 +10,8 @@ import ReactFlow, {
   NodeChange,
   ReactFlowInstance,
   addEdge,
+  applyEdgeChanges,
+  applyNodeChanges,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import {
@@ -156,6 +158,13 @@ const EditorCanvas = (props: Props) => {
     });
   };
 
+
+    useEffect(() => {
+      dispatch({ type: "LOAD_DATA", payload: { edges, elements: nodes } });
+    }, [nodes, edges]);
+
+
+    
   return (
     <ResizablePanelGroup direction="horizontal">
       <ResizablePanel defaultSize={70}>
