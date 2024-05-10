@@ -15,39 +15,39 @@ export const onDragStart = (
   event.dataTransfer.effectAllowed = "move";
 };
 
-// export const onSlackContent = (
-//   nodeConnection: ConnectionProviderProps,
-//   event: React.ChangeEvent<HTMLInputElement>
-// ) => {
-//   nodeConnection.setSlackNode((prev: any) => ({
-//     ...prev,
-//     content: event.target.value,
-//   }));
-// };
+export const onSlackContent = (
+  nodeConnection: ConnectionProviderProps,
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  nodeConnection.setSlackNode((prev: any) => ({
+    ...prev,
+    content: event.target.value,
+  }));
+};
 
-// export const onDiscordContent = (
-//   nodeConnection: ConnectionProviderProps,
-//   event: React.ChangeEvent<HTMLInputElement>
-// ) => {
-//   nodeConnection.setDiscordNode((prev: any) => ({
-//     ...prev,
-//     content: event.target.value,
-//   }));
-// };
+export const onDiscordContent = (
+  nodeConnection: ConnectionProviderProps,
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  nodeConnection.setDiscordNode((prev: any) => ({
+    ...prev,
+    content: event.target.value,
+  }));
+};
 
-// export const onContentChange = (
-//   nodeConnection: ConnectionProviderProps,
-//   nodeType: string,
-//   event: React.ChangeEvent<HTMLInputElement>
-// ) => {
-//   if (nodeType === "Slack") {
-//     onSlackContent(nodeConnection, event);
-//   } else if (nodeType === "Discord") {
-//     onDiscordContent(nodeConnection, event);
-//   } else if (nodeType === "Notion") {
-//     onNotionContent(nodeConnection, event);
-//   }
-// };
+export const onContentChange = (
+  nodeConnection: ConnectionProviderProps,
+  nodeType: string,
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  if (nodeType === "Slack") {
+    onSlackContent(nodeConnection, event);
+  } else if (nodeType === "Discord") {
+    onDiscordContent(nodeConnection, event);
+  } else if (nodeType === "Notion") {
+    onNotionContent(nodeConnection, event);
+  }
+};
 
 export const onAddTemplateSlack = (
   nodeConnection: ConnectionProviderProps,
