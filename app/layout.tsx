@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "../providers/theme-provider";
 import ModalProvider from "../providers/modal-provider";
 import { Toaster } from "../components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ModalProvider>
+              <SpeedInsights />
               {children}
               <Toaster />
             </ModalProvider>
