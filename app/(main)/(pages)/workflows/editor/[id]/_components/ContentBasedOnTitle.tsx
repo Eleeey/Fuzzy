@@ -81,7 +81,7 @@ const ContentBasedOnTitle = ({
           <Input
             type="text"
             value={nodeConnectionType.content}
-            // onChange={(event) => onContentChange(nodeConnection, title, event)}
+            onChange={(event) => onContentChange(nodeConnection, title, event)}
           />
 
           {JSON.stringify(file) !== "{}" && title !== "Google Drive" && (
