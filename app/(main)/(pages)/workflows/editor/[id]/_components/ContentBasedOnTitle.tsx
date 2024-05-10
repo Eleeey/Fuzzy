@@ -8,6 +8,7 @@ import { Input } from '../../../../../../../components/ui/input';
 import GoogleFileDetails from './GoogleFileDetails';
 import GoogleDriveFiles from './GoogleDriveFiles';
 import ActionButton from './ActionButton';
+import { onContentChange } from '../../../../../../../lib/editorUtils';
 
 
 export interface Option {
