@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ConnectionProviderProps } from '../../../../../../../providers/connection-provider';
 import { EditorState } from '../../../../../../../providers/editor-provider';
 import { AccordionContent } from '../../../../../../../components/ui/accordion';
@@ -9,6 +9,8 @@ import GoogleFileDetails from './GoogleFileDetails';
 import GoogleDriveFiles from './GoogleDriveFiles';
 import ActionButton from './ActionButton';
 import { onContentChange } from '../../../../../../../lib/editorUtils';
+import { toast } from 'sonner';
+import axios from 'axios';
 
 
 export interface Option {
@@ -44,6 +46,23 @@ const ContentBasedOnTitle = ({
 }: Props) => {
   const { selectedNode } = newState.editor;
   const title = selectedNode.data.title;
+
+
+   useEffect(() => {
+    const reqGoogle = async () => {
+      const response: { data: { message: { files: any } } } = await axios.get(
+        '/api/drive'
+      )
+      if (response) {
+        console.log(response.data.message.files[0])
+        toast.message("Fetched File")
+        setFile(response.data.message.files[0])
+      } else {
+        toast.error('Something went wrong')
+      }
+    }
+    reqGoogle()
+  }, [])
 
   // @ts-ignore
   const nodeConnectionType: any = nodeConnection[nodeMapper[title]];

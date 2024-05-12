@@ -4,9 +4,9 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/api/webhooks/clerk",
-    
+
     "/api/drive-activity/notification",
-    // "/api/payment/success",
+    "/api/payment/success",
   ],
   ignoredRoutes: [
     "/api/auth/callback/discord",

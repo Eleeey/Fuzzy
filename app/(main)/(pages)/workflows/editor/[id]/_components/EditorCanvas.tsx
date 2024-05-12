@@ -27,6 +27,7 @@ import FlowInstance from "./FlowInstance";
 import EditorCanvasSidebar from "./EditorCanvasSidebar";
 import { v4 } from "uuid";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "../../../../../../../components/ui/resizable";
+import { onGetNodesEdges } from "../../../_actions/workflowconn.actions";
 
 type Props = {};
 
@@ -163,7 +164,20 @@ const EditorCanvas = (props: Props) => {
       dispatch({ type: "LOAD_DATA", payload: { edges, elements: nodes } });
     }, [nodes, edges]);
 
+  const onGetWorkFlow = async () => {
+    setIsWorkFlowLoading(true)
+    const response = await onGetNodesEdges(pathname.split('/').pop()!)
+    if (response) {
+      setEdges(JSON.parse(response.edges!))
+      setNodes(JSON.parse(response.nodes!))
+      setIsWorkFlowLoading(false)
+    }
+    setIsWorkFlowLoading(false)
+  }
 
+  useEffect(() => {
+    onGetWorkFlow()
+  }, [])
     
   return (
     <ResizablePanelGroup direction="horizontal">
