@@ -18,7 +18,7 @@ const BillingDashboard = (props: Props) => {
 
   const onStripeProducts = async () => {
     setLoading(true);
-    const { data } = await axios.get("/api/payment");
+    const { data } = await axios.get("/api/payments");
     if (data) {
       setStripeProducts(data);
       setLoading(false);
