@@ -47,5 +47,5 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  return NextResponse.redirect("${process.env.NEXT_PUBLIC_URL}/connections");
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/connections`);
 }
