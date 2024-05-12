@@ -3,7 +3,7 @@ import React from "react";
 import ProfileForms from "../../../../components/forms/ProfileForms";
 import ProfilePicture from "./_components/ProfilePicture";
 import { db } from "../../../../lib/db";
-import { getUserImage, removeProfileImage, uploadProfileImage } from "../../../../lib/actions/settings.actions";
+import { getUserImage, removeProfileImage, updateUserInfo, uploadProfileImage } from "../../../../lib/actions/settings.actions";
 
 
 type Props = {};
@@ -15,7 +15,7 @@ const Settings = async (props: Props) => {
 const user = getUserImage()
   
 
-  const updateUserInfo=()=>{}
+  
   return (
     <div className="flex flex-col gap-4">
       <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">

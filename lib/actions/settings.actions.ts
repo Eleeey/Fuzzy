@@ -53,3 +53,20 @@ export const uploadProfileImage = async (image: string) => {
     console.log(error);
   }
 };
+
+export const updateUserInfo = async (name: string) => {
+  "use server";
+const authUser = await currentUser();
+if (!authUser) {
+  console.log("no user found");
+}
+  const updateUser = await db.user.update({
+    where: {
+      clerkId: authUser?.id,
+    },
+    data: {
+      name,
+    },
+  });
+  return updateUser;
+};

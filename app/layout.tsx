@@ -34,8 +34,8 @@ export default function RootLayout({
           >
             <BillingProvider>
               <ModalProvider>
-                <SpeedInsights />
                 {children}
+                <SpeedInsights />
                 <Toaster />
               </ModalProvider>
             </BillingProvider>

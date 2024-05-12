@@ -11,7 +11,7 @@ import { Connection } from "../types";
 
 export const NavLinks = [
   { title: "Products", links: "#" },
-  { title: "Pricing", links: "#" },
+  { title: "Pricing", links: "" },
   { title: "Clients", links: "#" },
   { title: "Resources", links: "#" },
   { title: "Documentation", links: "#" },
@@ -107,15 +107,32 @@ export const menuOptions = [
   { name: "Workflows", Component: Workflows, href: "/workflows" },
   { name: "Settings", Component: Settings, href: "/settings" },
   { name: "Connections", Component: Category, href: "/connections" },
-  { name: "Billing", Component: Payment, href: "/billing" },
+  { name: "Billing", Component: Payment, href: "/billings" },
   { name: "Templates", Component: Templates, href: "/templates" },
-  { name: "Logs", Component: Logs, href: "/logs" },
+ 
 ];
 
 export const EditorCanvasDefaultCardTypes = {
+  Slack: { description: "Send a notification to slack", type: "Action" },
+  "Google Drive": {
+    description:
+      "Connect with Google drive to trigger actions or to create files and folders.",
+    type: "Trigger",
+  },
+  Discord: {
+    description: "Post messages to your discord server",
+    type: "Action",
+  },
   Email: { description: "Send and email to a user", type: "Action" },
   Condition: {
     description: "Boolean operator that creates different conditions lanes.",
+    type: "Action",
+  },
+
+  Notion: { description: "Create entries directly in notion.", type: "Action" },
+  "Custom Webhook": {
+    description:
+      "Connect any app that has an API key and send data to your applicaiton.",
     type: "Action",
   },
   AI: {
@@ -123,22 +140,7 @@ export const EditorCanvasDefaultCardTypes = {
       "Use the power of AI to summarize, respond, create and much more.",
     type: "Action",
   },
-  Slack: { description: "Send a notification to slack", type: "Action" },
-  "Google Drive": {
-    description:
-      "Connect with Google drive to trigger actions or to create files and folders.",
-    type: "Trigger",
-  },
-  Notion: { description: "Create entries directly in notion.", type: "Action" },
-  "Custom Webhook": {
-    description:
-      "Connect any app that has an API key and send data to your applicaiton.",
-    type: "Action",
-  },
-  Discord: {
-    description: "Post messages to your discord server",
-    type: "Action",
-  },
+
   "Google Calendar": {
     description: "Create a calendar invite.",
     type: "Action",
