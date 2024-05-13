@@ -43,7 +43,7 @@ export default function Home() {
         speed="slow"
       />
       <section>
-        <HeroParallax products={products}></HeroParallax>
+        <HeroParallax products={products}/>
       </section>
       <section className="mt-[-0px]">
         <Lamp />
@@ -65,11 +65,11 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />Free automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    100 tasks per month
+                    10 tasks per month
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -112,7 +112,7 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />Free automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
@@ -159,11 +159,11 @@ export default function Home() {
                 up {"you'll"} never leave us after this!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />Unlimited automations
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    100 tasks per month
+                    Ulimited tasks per month
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />

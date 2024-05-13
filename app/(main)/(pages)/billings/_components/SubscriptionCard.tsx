@@ -44,7 +44,7 @@ export const SubscriptionCard = ({ onPayment, products, tier }: Props) => {
                     ? "Free"
                     : product.nickname == "Pro"
                     ? "29.99"
-                    : product.nickname == "Unlimited" && "99.99"}
+                    : product.nickname == "Unlimited" && "  99.99"}
                   /mo
                 </p>
               </div>
